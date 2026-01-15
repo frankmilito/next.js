@@ -47,7 +47,7 @@ import type {
   GetStaticPaths,
   GetStaticProps,
 } from '../../../types'
-import { getDeploymentId } from '../../../shared/lib/deployment-id'
+import { getAssetDeploymentId } from '../../../shared/lib/deployment-id'
 
 export const getHandler = ({
   srcPage: originalSrcPage,
@@ -265,7 +265,7 @@ export const getHandler = ({
                     buildId,
                     customServer:
                       Boolean(routerServerContext?.isCustomServer) || undefined,
-                    deploymentId: getDeploymentId(),
+                    assetDeploymentId: getAssetDeploymentId(),
                   },
                   renderOpts: {
                     params,

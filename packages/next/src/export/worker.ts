@@ -290,7 +290,7 @@ async function exportPageImpl(
   } else {
     const sharedContext: PagesSharedContext = {
       buildId,
-      deploymentId: commonRenderOpts.deploymentId,
+      assetDeploymentId: commonRenderOpts.assetDeploymentId,
       customServer: undefined,
     }
 

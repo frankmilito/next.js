@@ -183,7 +183,7 @@ export async function handler(
     nextConfig,
     parsedUrl,
     interceptionRoutePatterns,
-    deploymentId,
+    assetDeploymentId,
   } = prepareResult
 
   const normalizedSrcPage = normalizeAppPath(srcPage)
@@ -659,7 +659,7 @@ export async function handler(
           trailingSlash: nextConfig.trailingSlash,
           images: nextConfig.images,
           previewProps: prerenderManifest.preview,
-          deploymentId: deploymentId,
+          assetDeploymentId: assetDeploymentId,
           enableTainting: nextConfig.experimental.taint,
           htmlLimitedBots: nextConfig.htmlLimitedBots,
           reactMaxHeadersLength: nextConfig.reactMaxHeadersLength,

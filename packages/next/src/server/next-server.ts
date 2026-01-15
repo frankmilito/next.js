@@ -356,7 +356,12 @@ export default class NextNodeServer extends BaseServer<
     // when using compile mode static env isn't inlined so we
     // need to populate in normal runtime env
     if (this.renderOpts.isExperimentalCompile) {
-      populateStaticEnv(this.nextConfig, this.renderOpts.deploymentId || '')
+      // assetDeploymentId only works with Turbopack, and `isExperimentalCompile` isn't supported
+      // with that anyway, so we can assign assetDeploymentId to deploymentId here
+      populateStaticEnv(
+        this.nextConfig,
+        this.renderOpts.assetDeploymentId || ''
+      )
     }
 
     const shouldRemoveUncaughtErrorAndRejectionListeners = Boolean(
@@ -729,7 +734,7 @@ export default class NextNodeServer extends BaseServer<
           renderOpts as LoadedRenderOpts<PagesModule>,
           {
             buildId: this.buildId,
-            deploymentId: this.renderOpts.deploymentId,
+            assetDeploymentId: this.renderOpts.assetDeploymentId,
             customServer: this.serverOptions.customServer || undefined,
           },
           {

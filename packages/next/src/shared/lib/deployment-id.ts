@@ -4,10 +4,14 @@ export function getDeploymentId(): string | undefined {
   return process.env.NEXT_DEPLOYMENT_ID
 }
 
-export function getDeploymentIdQueryOrEmptyString(): string {
-  let deploymentId = getDeploymentId()
+export function getAssetDeploymentId(): string | undefined {
+  return process.env.NEXT_ASSET_DEPLOYMENT_ID || process.env.NEXT_DEPLOYMENT_ID
+}
+
+export function getAssetDeploymentIdQuery(amperstand = false): string {
+  let deploymentId = getAssetDeploymentId()
   if (deploymentId) {
-    return `?dpl=${deploymentId}`
+    return `${amperstand ? '&' : '?'}dpl=${deploymentId}`
   }
   return ''
 }
