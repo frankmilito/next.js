@@ -353,6 +353,7 @@ export const experimentalSchema = {
   lockDistDir: z.boolean().optional(),
   hideLogsAfterAbort: z.boolean().optional(),
   runtimeServerDeploymentId: z.boolean().optional(),
+  assetDeploymentId: z.string().optional(),
   devCacheControlNoCache: z.boolean().optional(),
 }
 

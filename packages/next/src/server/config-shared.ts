@@ -861,6 +861,13 @@ export interface ExperimentalConfig {
   runtimeServerDeploymentId?: boolean
 
   /**
+   * A different deployment id to use for static assets (as opposed to the config.deploymentConfig)
+   *
+   * @default false
+   */
+  assetDeploymentId?: string
+
+  /**
    * Use 'no-cache' instead of 'no-store' in the Cache-Control header for development.
    * This allows conditional requests to the server, which can help with development
    * workflows that benefit from caching validation.
@@ -1693,6 +1700,7 @@ export interface NextConfigRuntime {
     | 'runtimeServerDeploymentId'
     | 'maxPostponedStateSize'
     | 'devCacheControlNoCache'
+    | 'assetDeploymentId'
   > & {
     // Pick on @internal fields generates invalid .d.ts files
     /** @internal */
@@ -1750,6 +1758,7 @@ export function getNextConfigRuntime(
         runtimeServerDeploymentId: ex.runtimeServerDeploymentId,
         maxPostponedStateSize: ex.maxPostponedStateSize,
         devCacheControlNoCache: ex.devCacheControlNoCache,
+        assetDeploymentId: ex.assetDeploymentId,
 
         trustHostHeader: ex.trustHostHeader,
         isExperimentalCompile: ex.isExperimentalCompile,
